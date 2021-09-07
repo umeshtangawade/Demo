@@ -5,4 +5,8 @@
     <UserSecretsId>f39a7c51-e198-4b5d-a311-d7edff23a58a</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AppBusiness\AppBusiness.csproj" />
+  </ItemGroup>
+
 </Project>
