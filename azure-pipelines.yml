@@ -12,7 +12,7 @@ pool:
 variables:
   buildConfiguration: 'Release'
   Parameters.RestoreBuildProjects: '**/*.csproj'
-  Parameters.TestProjects: '**/Tests/*.csproj'
+  Parameters.TestProjects: '**/Tests.csproj'
 
 steps:
 
