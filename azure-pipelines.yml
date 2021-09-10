@@ -22,6 +22,13 @@ steps:
     command: restore
     projects: '$(Parameters.RestoreBuildProjects)'
 
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'aspnetcoredemo'
+    organization: 'umeshtangawade'
+    scannerMode: 'MSBuild'
+    projectKey: 'aspnetcoredemo'
+    projectName: 'aspnetcoredemo'
 - task: DotNetCoreCLI@2
   displayName: Build
   inputs:
@@ -42,7 +49,10 @@ steps:
     publishWebProjects: True
     arguments: '--configuration $(BuildConfiguration) --output $(build.artifactstagingdirectory)'
     zipAfterPublish: True
-
+- task: SonarCloudAnalyze@1
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact'
   inputs:
